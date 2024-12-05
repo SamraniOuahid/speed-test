@@ -1,11 +1,12 @@
-from speedtest import Speedtest
+import speedtest
 
-wifi = Speedtest()
+wifi = speedtest.Speedtest()
+wifi.get_best_server()
 
-print("Getting Download speed...")
-download = wifi.download() / 1_000_000  # Convert from bits to Mbps
-print(f"Download speed: {download:.2f} Mbps")
+print("Testing download...")
+download = wifi.download()
+print(f"Download speed: {download / 1_000_000:.2f} Mbps")
 
-print("Getting Upload speed...")
-upload = wifi.upload() / 1_000_000  # Convert from bits to Mbps
-print(f"Upload speed: {upload:.2f} Mbps")
+print("Testing upload...")
+upload = wifi.upload()
+print(f"Upload speed: {upload / 1_000_000:.2f} Mbps")
